@@ -187,8 +187,13 @@ while True:
                     f"-D  rackserial={rackserial}  "\
                     f"-o  /home/{user}/labelfiles/{rackserial}.pdf".split("  ")
                 subprocess.run(cmd)
+                cmd = "glabels-batch-qt  "\
+                    f"/mnt/fs/Icomera/Line/Supply Chain/Production/Glabels/Templates/logisticslabel.glabels  "\
+                    f"-D  serial={rackserial}  "\
+                    f"-o  /home/{user}/labelfiles/{rackserial}l.pdf".split("  ")
+                subprocess.run(cmd)
                 sleep(1)
-                cmd = f"lp -n 1 -c /home/{user}/labelfiles/{rackserial}.pdf -d {printer} -o media={labelsize}".split()
+                cmd = f"lp -n 1 -c /home/{user}/labelfiles/{rackserial}.pdf -c /home/{user}/labelfiles/{rackserial}l.pdf -d {printer} -o media={labelsize}".split()
                 subprocess.run(cmd)
         else:
             print('Upload failed!')
