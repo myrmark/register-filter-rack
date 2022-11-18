@@ -116,14 +116,15 @@ def dbupload(cmd1, cmd2):
     db.close()
 
 
+title = 'Select printer: '
+options = ['TTP-644MT', 'ME340_production', 'Zebra_ZT230_production', 'ME340_lager', 'Zebra_ZT230_lager']
+printer, index = pick(options, title)
+title = 'Choose label size: '
+options = ['60x30mm', '100x20mm', '101x152mm']
+labelsize, index = pick(options, title)
+sap = input('Enter your SAP number: ')    
+
 while True:
-    title = 'Select printer: '
-    options = ['TTP-644MT', 'ME340_production', 'Zebra_ZT230_production', 'ME340_lager', 'Zebra_ZT230_lager']
-    printer, index = pick(options, title)
-    title = 'Choose label size: '
-    options = ['60x30mm', '100x20mm', '101x152mm']
-    labelsize, index = pick(options, title)
-    sap = input('Enter your SAP number: ')
     filter1 = input('Enter filter 1 serial: ')
     filter2 = input('Enter filter 2 serial: ')
     filter3 = input('Enter filter 3 serial: ')
